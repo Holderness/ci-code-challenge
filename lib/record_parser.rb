@@ -1,7 +1,10 @@
-class ParseData
-  attr_reader :raw_data
 
-  require 'csv'
+require 'csv'
+
+
+class ParseData
+
+  attr_reader :raw_data
 
   def initialize(file_path)
     @raw_data = File.readlines(file_path)
@@ -12,15 +15,21 @@ class ParseData
     @parsed_csv_array = csv_data.map{|row| CSV.parse(row).flatten}
   end
 
+  def 
+
 end
+
 
 class TennisPlayerData < ParseData
 
+
 end
+
 
 class PoliticianData < ParseData
 
 end
+
 
 class HockeyPlayerData < ParseData
 
