@@ -2,7 +2,7 @@
 require 'csv'
 
 
-class ParseData
+class DataParser
   attr_reader :raw_data, :data_array
 
   def initialize(file_path)
@@ -15,35 +15,36 @@ class ParseData
     csv_data.map{ |line| CSV.parse(line).flatten }
   end
 
-  def remove_middle_init(record_array)
-  	record_array.map{ |elem| elem.delete_at(2) }
-  	record_array
+  def remove_middle_init(data_array)
+  	data_array.map{ |elem| elem.delete_at(2) }
+  	data_array
   end
 
-  def swap_date_and_color(record_array)
-  	record_array.map do |elem| 
+  def swap_date_and_color(data_array)
+  	data_array.map do |elem| 
       elem[3], elem[4] = elem[4], elem[3]
     end
-    record_array
+    data_array
   end
 end
 
 
-class TennisPlayerData < ParseData
+
+class TennisPlayerData < DataParser
   def standardize_tennis_player_array
   	remove_middle_init(@data_array)
   end
 end
 
 
-class PoliticianData < ParseData
+class PoliticianData < DataParser
   def standardize_politician_array
   	swap_date_and_color(@data_array)
   end
 end
 
 
-class HockeyPlayerData < ParseData
+class HockeyPlayerData < DataParser
   def standardize_hockey_player_array
   	filtered_data = remove_middle_init(@data_array)
     swap_date_and_color(filtered_data)

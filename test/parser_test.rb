@@ -1,5 +1,5 @@
 require_relative 'test_helper'
-require_relative '../lib/record_parser'
+require_relative '../lib/data_parser'
 
 class RecordTest < Minitest::Test
 

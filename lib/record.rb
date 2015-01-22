@@ -1,11 +1,10 @@
 class Record
 
-  attr_reader :first_name, :last_name, :middle_init, :gender, :dob, :fav_color
+  attr_reader :last_name, :first_name, :gender, :dob, :fav_color
 
   def initialize( options = {} )
+  	@last_name = options[:last_name]
     @first_name = options[:first_name]
-    @last_name = options[:last_name]
-    @middle_init = options[:middle_init]
     @gender = tweak_gender(options[:gender])
     @dob = tweak_date(options[:dob])
     @fav_color = options[:fav_color]
