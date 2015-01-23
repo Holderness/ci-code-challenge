@@ -31,21 +31,21 @@ end
 
 
 class TennisPlayerData < DataParser
-  def standardize_tennis_player_array
+  def standardize_tennis_player_data
   	remove_middle_init(@data_array)
   end
 end
 
 
 class PoliticianData < DataParser
-  def standardize_politician_array
+  def standardize_politician_data
   	swap_date_and_color(@data_array)
   end
 end
 
 
 class HockeyPlayerData < DataParser
-  def standardize_hockey_player_array
+  def standardize_hockey_player_data
   	filtered_data = remove_middle_init(@data_array)
     swap_date_and_color(filtered_data)
   end

@@ -1,7 +1,6 @@
 require_relative 'test_helper'
-require_relative '../lib/data_parser'
 
-class RecordTest < Minitest::Test
+class DataParserTest < Minitest::Test
 
 	def setup
     @politic = PoliticianData.new('data/politicians.txt')
@@ -19,7 +18,7 @@ class RecordTest < Minitest::Test
     ]
     actual = @politic.parse_data_into_array[1]
     assert_equal(expected, actual, "@politic.parse_data_into_array[1] should 
-    	return the array #{expected}")
+    	return the data #{expected}")
 	end
 
 	def test_tennis_parse
@@ -33,7 +32,7 @@ class RecordTest < Minitest::Test
     ]
     actual = @tennis.parse_data_into_array[1]
     assert_equal(expected, actual, "@tennis.parse_data_into_array[1] should 
-    	return the array #{expected}")
+    	return the data #{expected}")
 	end
 
 	def test_hockey_parse
@@ -47,10 +46,10 @@ class RecordTest < Minitest::Test
     ]
     actual = @hockey.parse_data_into_array[1]
     assert_equal(expected, actual, "@hockey.parse_data_into_array[1] should 
-    	return the array #{expected}")
+    	return the data #{expected}")
 	end
 
-	def test_politician_array_standardization
+	def test_politician_data_standardization
 		expected = [
       "Bishop",
       "Timothy",
@@ -58,12 +57,12 @@ class RecordTest < Minitest::Test
       "4/23/1967",
       "Yellow"
     ]
-		actual = @politic.standardize_politician_array[1]
-		assert_equal(expected, actual, "@politic.standardize_politician_array[1] 
-			should return teh array #{expected}")
+		actual = @politic.standardize_politician_data[1]
+		assert_equal(expected, actual, "@politic.standardize_politician_data[1] 
+			should return the data #{expected}")
 	end
 
-	def test_tennis_array_standardization
+	def test_tennis_data_standardization
 		expected = [
       "Hingis",
       "Martina",
@@ -71,12 +70,12 @@ class RecordTest < Minitest::Test
       "4-2-1979",
       "Green"
     ]
-		actual = @tennis.standardize_tennis_player_array[1]
-		assert_equal(expected, actual, "@tennis.standardize_politician_array[1] 
-			should return teh array #{expected}")
+		actual = @tennis.standardize_tennis_player_data[1]
+		assert_equal(expected, actual, "@tennis.standardize_politician_data[1] 
+			should return the data #{expected}")
 	end
 
-	def test_hockey_array_standardization
+	def test_hockey_data_standardization
 		expected = [
       "Bonk",
       "Radek",
@@ -84,9 +83,9 @@ class RecordTest < Minitest::Test
       "6-3-1975",
       "Green"
     ]
-		actual = @hockey.standardize_hockey_player_array[1]
-		assert_equal(expected, actual, "@hockey.standardize_politician_array[1] 
-			should return teh array #{expected}")
+		actual = @hockey.standardize_hockey_player_data[1]
+		assert_equal(expected, actual, "@hockey.standardize_politician_data[1] 
+			should return the data #{expected}")
 	end
 
 end
