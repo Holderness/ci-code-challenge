@@ -1,3 +1,4 @@
+
 class Record
 
   attr_reader :last_name, :first_name, :gender, :dob, :fav_color

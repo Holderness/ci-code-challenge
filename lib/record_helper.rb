@@ -1,7 +1,11 @@
+
 module RecordHelper
 
-  def write(records)
-  	records.each{ |record| puts record.to_s }
+  def write_record(file, header, record_nav)
+  	file.write(header + "\n")
+  	record_nav.each do |record| 
+  		file.write(record.to_s + "\n")
+  	end
+  	file.write("\n")
   end
-
 end

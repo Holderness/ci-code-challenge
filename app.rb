@@ -1,5 +1,9 @@
 
-Dir["lib/*.rb"].each {|file| require file }
+require_relative 'lib/record'
+require_relative 'lib/data_parser'
+require_relative 'lib/data_aggregator'
+require_relative 'lib/record_navigator'
+require_relative 'lib/record_helper'
 
 include RecordHelper
 
@@ -12,7 +16,9 @@ data = [
 records = DataAggregator.new(data).aggregate
 record_navigator = RecordNavigator.new(records)
 
-write(record_navigator.by_gender_and_last_name)
-write(record_navigator.by_dob)
+output = File.open("./output.txt", 'w')
 
+write_record(output, "Output 1:", record_navigator.by_gender_and_last_name)
+write_record(output, "Output 2:", record_navigator.by_dob)
+write_record(output, "Output 3:", record_navigator.by_last_name_desc)
 

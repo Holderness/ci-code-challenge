@@ -1,5 +1,4 @@
 
-
 class DataAggregator
 	attr_reader :data
 

@@ -1,3 +1,4 @@
+
 require_relative 'test_helper'
 
 class DataAggregatorTest < Minitest::Test
