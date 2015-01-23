@@ -8,4 +8,4 @@ data = [
   HockeyPlayerData.new('data/hockey_players.txt').standardize_hockey_player_data
 ]
 
-DataAggregator.new(data).aggregate
+records = DataAggregator.new(data).aggregate
