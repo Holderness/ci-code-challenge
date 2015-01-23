@@ -11,7 +11,7 @@ class DataParser
   end
 
   def parse_data_into_array
-    csv_data = @raw_data.map{ |line| line.strip.gsub(/\,?\s\|?\s?/, ",") }
+    csv_data = raw_data.map{ |line| line.strip.gsub(/\,?\s\|?\s?/, ",") }
     csv_data.map{ |line| CSV.parse(line).flatten }
   end
 
@@ -32,21 +32,21 @@ end
 
 class TennisPlayerData < DataParser
   def standardize_tennis_player_data
-  	remove_middle_init(@data_array)
+  	remove_middle_init(data_array)
   end
 end
 
 
 class PoliticianData < DataParser
   def standardize_politician_data
-  	swap_date_and_color(@data_array)
+  	swap_date_and_color(data_array)
   end
 end
 
 
 class HockeyPlayerData < DataParser
   def standardize_hockey_player_data
-  	filtered_data = remove_middle_init(@data_array)
+  	filtered_data = remove_middle_init(data_array)
     swap_date_and_color(filtered_data)
   end
 end

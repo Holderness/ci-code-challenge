@@ -17,7 +17,7 @@ class DataAggregator
   end
 
   def aggregate
-  	record_array = @data.map do |profession|
+  	record_array = data.map do |profession|
   		profession.map do |person|
   			Record.new(attributes(person))
   		end
