@@ -1,6 +1,7 @@
 
-require_relative 'lib/'
+Dir["lib/*.rb"].each {|file| require file }
 
+include RecordHelper
 
 data = [
 	PoliticianData.new('data/politicians.txt').standardize_politician_data,
@@ -9,3 +10,9 @@ data = [
 ]
 
 records = DataAggregator.new(data).aggregate
+record_navigator = RecordNavigator.new(records)
+
+write(record_navigator.by_gender_and_last_name)
+write(record_navigator.by_dob)
+
+

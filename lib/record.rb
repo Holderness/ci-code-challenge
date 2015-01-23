@@ -25,7 +25,7 @@ class Record
   end
 
   def to_s
-  	"#{@last_name} #{@first_name} #{@gender} #{@dob} #{@fav_color}"
+  	"#{last_name} #{first_name} #{gender} #{dob} #{fav_color}"
   end
 
 end
